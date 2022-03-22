@@ -2,11 +2,11 @@
 "use strict";
 
 // creating a container or main div element
-var container = document.createElement("div");
+let container = document.createElement("div");
 container.className = "container p-5";
 
 // creating header
-var heading = document.createElement("div");
+let heading = document.createElement("div");
 heading.className = "h2";
 heading.innerHTML = "DOM FORM";
 heading.style.textAlign = "center";
@@ -40,14 +40,14 @@ function createForm_text(labelName, type, id) {
 
 //creating form radio and checkbox elements
 function createForm_select(labelName, type, name) {
-  var div = document.createElement("div");
+  let div = document.createElement("div");
   div.className = "form-check";
 
-  var label = document.createElement("label");
+  let label = document.createElement("label");
   label.setAttribute("for", labelName);
   label.className = "form-check-label";
   label.innerHTML = labelName;
-  var input = document.createElement("input");
+  let input = document.createElement("input");
   input.type = type;
   input.className = "form-check-input";
   input.id = labelName;
@@ -58,16 +58,16 @@ function createForm_select(labelName, type, name) {
   return div;
 }
 
-var div1 = document.createElement("div");
+let div1 = document.createElement("div");
 div1.className = "col-6 ";
 function createSelectbox_R(labelName) {
-  var fieldset = document.createElement("fieldset");
+  let fieldset = document.createElement("fieldset");
   fieldset.className = "form-group";
 
-  var div = document.createElement("div");
+  let div = document.createElement("div");
   div.className = "row";
 
-  var legend = document.createElement("legend");
+  let legend = document.createElement("legend");
   legend.className = "col-form-label col-4 ml-4";
   legend.innerHTML = labelName;
 
@@ -76,16 +76,16 @@ function createSelectbox_R(labelName) {
   return fieldset;
 }
 
-var div2 = document.createElement("div");
+let div2 = document.createElement("div");
 div2.className = "col-6";
 function createSelectbox_C(labelName) {
-  var fieldset = document.createElement("fieldset");
+  let fieldset = document.createElement("fieldset");
   fieldset.className = "form-group";
 
-  var div = document.createElement("div");
+  let div = document.createElement("div");
   div.className = "row";
 
-  var legend = document.createElement("legend");
+  let legend = document.createElement("legend");
   legend.className = "col-form-label col-4 ml-4";
   legend.innerHTML = labelName;
 
@@ -96,10 +96,10 @@ function createSelectbox_C(labelName) {
 
 //creating a button to display form input in table
 function createButton() {
-  var div = document.createElement("div");
+  let div = document.createElement("div");
   div.className = "row offset-10";
 
-  var btn = document.createElement("button");
+  let btn = document.createElement("button");
   btn.textContent = "Submit";
   btn.type = "button";
   btn.className = "btn btn-primary btn-lg text-center mt-5";
@@ -143,32 +143,32 @@ form.append(
 );
 
 //creating a table ,so when action() button is clicked, datawill be stored in table
-var divtable = document.createElement("div");
+let divtable = document.createElement("div");
 divtable.className = "row";
 
-var table = document.createElement("table");
+let table = document.createElement("table");
 table.className = "mt-5 table table-striped";
 
-var thead = document.createElement("thead");
+let thead = document.createElement("thead");
 
-var tbody = document.createElement("tbody");
-var tr = document.createElement("tr");
+let tbody = document.createElement("tbody");
+let tr = document.createElement("tr");
 
-var th1 = document.createElement("th");
+let th1 = document.createElement("th");
 th1.innerHTML = "First Name";
-var th2 = document.createElement("th");
+let th2 = document.createElement("th");
 th2.innerHTML = "Last Name";
-var th3 = document.createElement("th");
+let th3 = document.createElement("th");
 th3.innerHTML = "Address";
-var th4 = document.createElement("th");
+let th4 = document.createElement("th");
 th4.innerHTML = "Pincode";
-var th5 = document.createElement("th");
+let th5 = document.createElement("th");
 th5.innerHTML = "Gender";
-var th6 = document.createElement("th");
+let th6 = document.createElement("th");
 th6.innerHTML = "Choice of food";
-var th7 = document.createElement("th");
+let th7 = document.createElement("th");
 th7.innerHTML = "State";
-var th8 = document.createElement("th");
+let th8 = document.createElement("th");
 th8.innerHTML = "Country";
 
 table.append(thead, tbody);
@@ -180,23 +180,23 @@ container.append(heading, form, divtable);
 
 //callin action(),which work as submit button for our form.
 function action() {
-  var foodValue = [];
-  var data_food = document.getElementsByName("food");
+  let foodValue = [];
+  let data_food = document.getElementsByName("food");
   for (let i = 0; i < data_food.length; i++) {
     if (data_food[i].checked) foodValue.push(data_food[i].value);
     //pushing the no.of food select to an array then checking whether total food is atleast 2 or not.
   }
-  var genderValue = [];
-  var data_gender = document.getElementsByName("gender");
+  let genderValue = [];
+  let data_gender = document.getElementsByName("gender");
   for (let i = 0; i < data_gender.length; i++) {
     if (data_gender[i].checked == true) genderValue.push(data_gender[i].value);
     //checking if radio button is checked or not.
   }
 
-  var fn = document.getElementById("fname").value;
-  var ln = document.getElementById("lname").value;
-  var addr = document.getElementById("address").value;
-  var pcode = document.getElementById("pin").value;
+  let fn = document.getElementById("fname").value;
+  let ln = document.getElementById("lname").value;
+  let addr = document.getElementById("address").value;
+  let pcode = document.getElementById("pin").value;
   let st = document.getElementById("state").value;
   let ctry = document.getElementById("country").value;
   if (!fn) {
@@ -220,15 +220,15 @@ function action() {
     alert("Please Enter Country");
   } else {
     let tablebody = document.querySelector("tbody");
-    var trow = tablebody.insertRow(0);
-    var cell1 = trow.insertCell(0);
-    var cell2 = trow.insertCell(1);
-    var cell3 = trow.insertCell(2);
-    var cell4 = trow.insertCell(3);
-    var cell5 = trow.insertCell(4);
-    var cell6 = trow.insertCell(5);
-    var cell7 = trow.insertCell(6);
-    var cell8 = trow.insertCell(7);
+    let trow = tablebody.insertRow(0);
+    let cell1 = trow.insertCell(0);
+    let cell2 = trow.insertCell(1);
+    let cell3 = trow.insertCell(2);
+    let cell4 = trow.insertCell(3);
+    let cell5 = trow.insertCell(4);
+    let cell6 = trow.insertCell(5);
+    let cell7 = trow.insertCell(6);
+    let cell8 = trow.insertCell(7);
     cell1.innerHTML = fn;
     cell2.innerHTML = ln;
     cell3.innerHTML = addr;
